@@ -6,4 +6,7 @@ function greet() {
 }
 
 greet();
+/**
+ *  Call variable here
+ */
 console.log(age);
