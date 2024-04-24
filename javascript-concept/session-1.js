@@ -1,15 +1,15 @@
-// const playerName = 'Mike';
+const playerName = 'Mike';
 
-// function greet() {
-//   const age = 22;
-//   console.log(playerName);
-// }
+function greet() {
+  const age = 22;
+  console.log(playerName);
+}
 
-// greet();
-// /**
-//  *  Call variable here
-//  */
-// console.log(age);
+greet();
+/**
+ *  Call variable here
+ */
+console.log(age);
 
 /**
  *  Local scope and global scope
@@ -26,4 +26,15 @@ function greet() {
 
 greet();
 console.log(studentName);
-console.log(studentAge);
+// console.log(studentAge);
+
+/**
+ *  Block scope inside block
+ */
+
+if (true) {
+  let studentNewAge = 10;
+  console.log(studentNewAge);
+}
+//console.log(studentNewAge);
+console.log(name);
