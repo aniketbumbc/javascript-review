@@ -28,4 +28,39 @@ function studentNewRoll() {
   console.log('Calling function variable');
 }
 
-console.log(studentNewRoll);
+// console.log(studentNewRoll);
+
+/**
+ *  Loops in java script
+ * for
+ * for of
+ * for in
+ * forEach()
+ * while
+ */
+
+const arrayTest = [9, 6, 4, 6, 7, 20, 45, 32, 11, 100];
+
+// for (let i = 0; i < arrayTest.length; i++) {
+//   console.log(arrayTest[i]);
+// }
+
+// for (let ele of arrayTest) {
+//   console.log(ele);
+// }
+
+const student = {
+  age: 12,
+  name: 'mike',
+  company: 'google',
+  city: 'London',
+};
+
+for (const key in student) {
+  console.log(key, '+ : + ', student[key]);
+  console.log();
+}
+
+for (const value of Object.values(student)) {
+  console.log(value);
+}
