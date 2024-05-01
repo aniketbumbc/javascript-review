@@ -11,7 +11,7 @@ function factorial(n) {
   console.log(result);
 }
 
-factorial(5);
+// factorial(5);
 
 /**
  *  Recursion way
