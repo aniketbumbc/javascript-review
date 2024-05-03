@@ -49,9 +49,9 @@ const myPromise = new Promise((resolve, reject) => {
   }, 2000);
 });
 
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
 
 function callPromise() {
   myPromise
@@ -69,3 +69,13 @@ function callPromise() {
 }
 
 btn.addEventListener('click', callPromise);
+/**
+ *  Handling error in promise ie reject state to handle error
+ */
+
+fetch('https://jsonplaceholder.typicode.om/todos/1')
+  .then((res) => res.json())
+  .catch((error) => {
+    console.log(error);
+  })
+  .then((data) => console.log(data));
