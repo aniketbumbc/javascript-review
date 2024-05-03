@@ -73,9 +73,25 @@ btn.addEventListener('click', callPromise);
  *  Handling error in promise ie reject state to handle error
  */
 
-fetch('https://jsonplaceholder.typicode.om/todos/1')
-  .then((res) => res.json())
-  .catch((error) => {
-    console.log(error);
-  })
-  .then((data) => console.log(data));
+// fetch('https://jsonplaceholder.typicode.om/todos/1')
+//   .then((res) => res.json())
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .then((data) => console.log(data));
+
+/**
+ *  async and await
+ *  syntatic sugar to promise
+ */
+
+async function callApi() {
+  try {
+    const result = await fetch('https://jsonplaceholder.typicode.cm/todos/1');
+    return await result.json();
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+callApi().then((data) => console.log(data));
