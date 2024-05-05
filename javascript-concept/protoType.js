@@ -35,3 +35,32 @@ const s1 = new Student('Bunny', 343);
 
 console.log(s1);
 s1.greet();
+
+const classMember = {
+  company: 'Sharma',
+  greet() {
+    console.log('Hello');
+  },
+};
+
+const guruTeacher = {
+  name: 'Yashoo',
+  age: 33,
+};
+
+const guruStudent = {
+  name: 'Yashoo',
+  age: 33,
+  city: 'Mumbai',
+};
+
+// guruTeacher.__proto__ = classMember;
+// guruStudent.__proto__ = classMember;
+
+/**
+ *  Changing prototype setPrototype of method
+ */
+
+Object.setPrototypeOf(guruTeacher, classMember);
+Object.setPrototypeOf(guruStudent, classMember);
+guruTeacher.greet();
