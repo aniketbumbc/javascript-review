@@ -127,4 +127,35 @@ function recursionFacto(num) {
   return recursionFacto(num - 1) * num;
 }
 
-console.log(recursionFacto(5));
+//console.log(recursionFacto(5));
+
+/**
+ *  Memo with fibbo series
+ */
+
+console.log('********* Fibo series********');
+
+function fiboSeries(n, memo) {
+  let result;
+
+  if (memo[n]) {
+    return memo[n];
+  }
+
+  if (n === 0 || n === 1) {
+    result = 1;
+  } else {
+    result = fiboSeries(n - 1, memo) + fiboSeries(n - 2, memo);
+  }
+
+  memo[n] = result;
+
+  console.log(memo);
+  return result;
+}
+
+console.log(fiboSeries(5, {}));
+
+// console.log(fiboSeries(15, {}));
+
+// console.log(fiboSeries(10, {})); //;
