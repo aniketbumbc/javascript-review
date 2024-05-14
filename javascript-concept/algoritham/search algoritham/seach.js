@@ -32,10 +32,8 @@ const testArry = [5, 6, 7, 8, 9, 10, 11, 12, 13];
 function binarySearchEle(arr, eleItem) {
   let start = 0;
   let end = arr.length - 1;
-
-  // Find element
-
   while (start <= end) {
+    //find middle element and search one side of array
     let middle = start + Math.floor((end - start) / 2);
     if (eleItem === arr[middle]) {
       return middle;
