@@ -23,9 +23,9 @@ console.log('**************');
 
 /**
  *  Quick sort
- *  1. use pivot ele to split array into smaller chuncks
+ *  1. use pivot ele to split array into smaller chunks
  *  2. check pivot ele equal to pivot ele
- *  3. comapare them unit sort array
+ *  3. compare them unit sort array
  */
 
 function quickSort(arr) {
@@ -44,14 +44,14 @@ function quickSort(arr) {
   // Get first element of array
   const pivotElement = mockArray.shift();
 
-  const equallEleArray = [pivotElement];
+  const equalEleArray = [pivotElement];
 
   while (mockArray.length) {
     const currentEle = mockArray.shift();
 
     // check if  currentEle is equal to center ele of array
     if (currentEle === pivotElement) {
-      equallEleArray.push(currentEle);
+      equalEleArray.push(currentEle);
     } else if (currentEle < pivotElement) {
       smallEleArray.push(currentEle);
     } else {
@@ -64,12 +64,12 @@ function quickSort(arr) {
   const smallEleSorted = quickSort(smallEleArray);
   const bigEleSorted = quickSort(biggerEleArray);
 
-  //   return smallEleSorted.concat(equallEleArray, bigEleSorted);
+  //   return smallEleSorted.concat(equalEleArray, bigEleSorted);
 
-  return [...smallEleSorted, ...equallEleArray, ...bigEleSorted];
+  return [...smallEleSorted, ...equalEleArray, ...bigEleSorted];
 }
 
-console.log(quickSort([6, 10, 1, 2]));
+//console.log(quickSort([6, 10, 1, 2]));
 
 // [6]
 // [1,2]
@@ -77,4 +77,51 @@ console.log(quickSort([6, 10, 1, 2]));
 
 /**
  *  Merge Sort
+ *  split array multiple times and only 2 elements array left then sort those array and merge back
  */
+
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  console.log('First Array', arr);
+
+  if (arr.length === 2) {
+    // swap and change position
+    console.log('check length 2 before', arr);
+    return arr[0] > arr[1] ? [arr[1], arr[0]] : arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const leftArr = arr.slice(0, middle);
+  const rightArr = arr.slice(middle);
+
+  const leftSortArr = mergeSort(leftArr);
+  const rightSortArr = mergeSort(rightArr);
+
+  const mergedArr = [];
+  let leftArrIndex = 0;
+  let rightArrIndex = 0;
+
+  while (
+    leftArrIndex < leftSortArr.length ||
+    rightArrIndex < rightSortArr.length
+  ) {
+    // check if condition left array becoz left array will be smaller and need to check if that not be exhausted(Finished)
+    if (
+      leftArrIndex >= leftSortArr.length ||
+      leftSortArr[leftArrIndex] > rightSortArr[rightArrIndex]
+    ) {
+      mergedArr.push(rightSortArr[rightArrIndex]);
+      rightArrIndex++;
+    } else {
+      mergedArr.push(leftSortArr[leftArrIndex]);
+      leftArrIndex++;
+    }
+  }
+
+  return mergedArr;
+}
+
+console.log(mergeSort([6, 10, 1, 2, 30]));
