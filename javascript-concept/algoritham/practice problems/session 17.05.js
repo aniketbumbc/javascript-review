@@ -53,11 +53,11 @@ function knapsack(elements, capacity) {
 }
 
 const items = [
+  { name: 'c', value: 10, weight: 3 },
   { name: 'a', value: 3, weight: 3 },
   { name: 'b', value: 6, weight: 8 },
-  { name: 'c', value: 10, weight: 3 },
 ];
-const maxCap = 5;
+const maxCap = 8;
 
 const sack = knapsack(items, maxCap);
 console.log(sack);
