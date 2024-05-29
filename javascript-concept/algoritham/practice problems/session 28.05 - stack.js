@@ -48,7 +48,7 @@ class StackLinkList {
   push(value) {
     /*
     **
-    Add the item first to the list
+    Add the item first to the list prepend item
     */
     const newNode = { value: value, next: this.head };
     this.head = newNode;
