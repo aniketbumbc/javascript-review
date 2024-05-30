@@ -13,16 +13,11 @@ const word = 'niketn';
 function findFirstRepeatChar(str) {
   const tempObj = {};
   for (let char of str) {
-    tempObj[char] ? (tempObj[char] += 1) : (tempObj[char] = 1);
-  }
-
-  for (const key in tempObj) {
-    if (tempObj[key] > 1) {
-      return { key };
+    if (tempObj[char]) {
+      return char;
     }
+    tempObj[char] = 1;
   }
-
-  return {};
 }
 
 console.log(findFirstRepeatChar(word));
