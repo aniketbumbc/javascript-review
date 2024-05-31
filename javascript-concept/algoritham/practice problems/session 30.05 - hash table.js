@@ -20,7 +20,7 @@ function findFirstRepeatChar(str) {
   }
 }
 
-console.log(findFirstRepeatChar(word));
+// console.log(findFirstRepeatChar(word));
 
 /**
  *  Hash table
@@ -29,8 +29,8 @@ console.log(findFirstRepeatChar(word));
 
 class HashTable {
   constructor() {
-    this.size = 1000;
-    this.buckets = Array(100).fill(null);
+    this.size = 2;
+    this.buckets = Array(2).fill(null);
   }
 
   /**
@@ -54,13 +54,13 @@ class HashTable {
   set(key, value) {
     const keyHash = this.hash(key);
     this.buckets[keyHash] = value;
-
-    console.log(this.buckets);
+    // console.log(keyHash);
+    // console.log(this.buckets);
   }
 
   get(key) {
     const keyHash = this.hash(key);
-    console.log(keyHash);
+    // console.log(keyHash);
     return this.buckets[keyHash];
   }
 
@@ -76,7 +76,18 @@ class HashTable {
 const h1 = new HashTable();
 
 h1.set('aaa', 1);
+h1.set('zzz', 2323);
 h1.set('b', 2);
 h1.set('c', 3);
+h1.set('A', 31);
 
-console.log(h1.get('c'));
+// console.log(h1.get('aaa'));
+// console.log(h1.get('zzz'));
+
+for (const char of word) {
+  h1.set(char, char);
+}
+
+h1.showInfo();
+console.log('*********');
+console.log(h1.get('e'));
