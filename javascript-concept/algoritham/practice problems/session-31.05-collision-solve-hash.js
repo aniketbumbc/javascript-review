@@ -61,13 +61,5 @@ const table = new HashTable();
 for (const char of word) {
   table.set(char, char);
 }
-// table.set('aniket', 23);
-// table.set('aniket-1', 23000);
-// table.set('aniket-2', 2300);
-// table.set('aniket-3', 230);
-// table.set('aniket', 1000);
+
 console.log(table.buckets);
-// console.log(table.get('aniket-1'));
-// console.log(table.get('aniket-2'));
-// console.log(table.get('aniket-3'));
-// console.log(table.get('aniket'));
