@@ -141,3 +141,29 @@ console.log(spliceStudent);
 
 pckgs.splice(3, 0, 2000);
 console.log('after', pckgs);
+
+/**
+ *  Some methods checks tests whether any of the array elements pass the given test function.
+ *  Returns true if an array element passes the given test function
+ * (callback returns a truthy value).
+ *
+ */
+
+function isEven(ele) {
+  if (ele % 2 === 0) {
+    console.log('Yes');
+    console.log(ele);
+    return ele;
+  }
+  //return ele;
+}
+
+const eleSome = pckgs.some(isEven);
+
+console.log(eleSome);
+
+let message = ['JavaScript', 'is', 'fun.'];
+
+let joinedMessage = message.join(' ');
+
+console.log(joinedMessage);
