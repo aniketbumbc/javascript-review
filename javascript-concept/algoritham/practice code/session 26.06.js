@@ -37,7 +37,6 @@ function reverseNumber(number) {
   while (number > 0) {
     remainder = number % 10;
     temp = temp * 10 + remainder;
-
     number = Math.floor(number / 10);
   }
 
