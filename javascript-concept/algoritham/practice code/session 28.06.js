@@ -1,9 +1,26 @@
-console.log('testing');
-
 /**
  *  Find max and min number in array
  *
  */
+
+function findMaxNMin(arry) {
+  let max = Number.NEGATIVE_INFINITY;
+  let min = Number.POSITIVE_INFINITY;
+
+  for (let ele of arry) {
+    if (ele > max) {
+      max = ele;
+    }
+
+    if (ele < min) {
+      min = ele;
+    }
+  }
+
+  console.log(max, min);
+}
+
+console.log(findMaxNMin([8, 6, 5, 4, 10, 11, 102, 100, -1]));
 
 /**
  *  Prime Number
@@ -12,6 +29,25 @@ console.log('testing');
 /**
  * Given a string s, find the first non-repeating character in it and return its index.
  */
+
+function nonRepeatingChar(str) {
+  const tempObj = {};
+
+  for (const char of str) {
+    tempObj[char] ? (tempObj[char] += 1) : (tempObj[char] = 1);
+  }
+
+  console.log(tempObj);
+
+  for (const key in tempObj) {
+    if (tempObj[key] === 1) {
+      const indexItem = str.indexOf(key);
+      return { key, indexItem };
+    }
+  }
+}
+
+console.log(nonRepeatingChar('aniketaelt'));
 
 /**
  *  Flatten array
@@ -34,7 +70,7 @@ function convertFlattenArray(array) {
   return tempArray;
 }
 
-console.log(convertFlattenArray(nonFlatArray));
+//console.log(convertFlattenArray(nonFlatArray));
 
 /**
  *  removed duplicate from string
