@@ -24,7 +24,36 @@ console.log(findMaxNMin([8, 6, 5, 4, 10, 11, 102, 100, -1]));
 
 /**
  *  Prime Number
+ *
  */
+
+function isPrimeNumber(number) {
+  if (number <= 0) {
+    return false;
+  }
+
+  if (number === 1 && number === 2) {
+    return true;
+  }
+
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function printPrimeNumber(num) {
+  for (let i = 0; i < num; i++) {
+    if (isPrimeNumber(i)) {
+      console.log(i);
+    }
+  }
+}
+
+printPrimeNumber(20);
 
 /**
  * Given a string s, find the first non-repeating character in it and return its index.
@@ -47,7 +76,7 @@ function nonRepeatingChar(str) {
   }
 }
 
-console.log(nonRepeatingChar('aniketaelt'));
+//console.log(nonRepeatingChar('aniketaelt'));
 
 /**
  *  Flatten array
@@ -104,7 +133,7 @@ function groupOfAnagram(array) {
     }
   }
 
-  console.log(Object.values(tempObj));
+  // console.log(Object.values(tempObj));
 }
 
 // groupOfAnagram(inputArray);
