@@ -23,7 +23,7 @@ function findMaxNMin(arry) {
 console.log(findMaxNMin([8, 6, 5, 4, 10, 11, 102, 100, -1]));
 
 /**
- *  Prime Number
+ *  Prime Number  and print prime number 10 to 100
  *
  */
 
