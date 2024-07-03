@@ -72,7 +72,31 @@ function maxCountSubArray(arry, size) {
 
 const arrayCount = [3, 2, 5, 4, 1];
 
-console.log('final', maxCountSubArray(arrayCount, 3));
-console.log('final', maxCountSubArray(arrayCount, 2));
-console.log('final', maxCountSubArray(arrayCount, 1));
-console.log('final', maxCountSubArray(arrayCount, 4));
+// console.log('final', maxCountSubArray(arrayCount, 3));
+// console.log('final', maxCountSubArray(arrayCount, 2));
+// console.log('final', maxCountSubArray(arrayCount, 1));
+// console.log('final', maxCountSubArray(arrayCount, 4));
+
+/**
+ * Given two strings, find if first string is a Subsequence
+ *
+ * **/
+
+function subsequence(str1, str2) {
+  let i = 0;
+  let j = 0;
+
+  while (i < str1.length && j < str2.length) {
+    if (str1[i] === str2[j]) {
+      i++;
+    }
+    j++;
+  }
+
+  return i === str1.length;
+}
+
+console.log(subsequence('AXY', 'ADXCPY'));
+
+console.log(subsequence('AXY', 'YADXCP'));
+console.log(subsequence('gksrek', 'geeksforgeeks'));
