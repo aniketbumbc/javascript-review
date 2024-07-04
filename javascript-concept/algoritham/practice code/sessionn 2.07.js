@@ -92,11 +92,9 @@ function subsequence(str1, str2) {
     }
     j++;
   }
-
   return i === str1.length;
 }
 
 console.log(subsequence('AXY', 'ADXCPY'));
-
 console.log(subsequence('AXY', 'YADXCP'));
 console.log(subsequence('gksrek', 'geeksforgeeks'));
