@@ -93,3 +93,30 @@ function minSubArray(arr, sum) {
 
 console.log(minSubArray([10, 5, 2, 7, 1, 9], 15));
 console.log(minSubArray([3, 2, 1, 5], 6));
+
+/**
+ * Binary search algorithm
+ */
+
+function binarySearch(arry, searchValue) {
+  let initial = 0;
+  let end = arry.length - 1;
+  let middle = Math.floor((initial + end) / 2);
+
+  while (initial <= end && arry[middle] !== searchValue) {
+    if (arry[middle] < searchValue) {
+      initial = middle + 1;
+    } else {
+      end = middle - 1;
+    }
+    middle = Math.floor((initial + end) / 2);
+
+    if (arry[middle] === searchValue) {
+      return [middle, searchValue];
+    }
+  }
+
+  return -1;
+}
+
+console.log(binarySearch([4, 5, 6, 7, 8], 7));
