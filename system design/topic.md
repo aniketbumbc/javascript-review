@@ -1,6 +1,6 @@
 # System Design Algorithms
 
-Progress: **8 / 34 done**
+Progress: **9 / 34 done**
 
 ## Hashing / URL shortener
 
@@ -24,7 +24,7 @@ Progress: **8 / 34 done**
 
 ## Load balancing
 
-- [ ] Round Robin
+- [x] Round Robin → [round-robin.js](round-robin.js)
 - [ ] Weighted Round Robin
 - [ ] Least Connections
 - [x] IP Hash → [ip-hash.js](ip-hash.js)
