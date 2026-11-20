@@ -29,7 +29,14 @@ const worker = new Worker(
     console.log(`Sent to ${to}`);
     console.log(`Preview: ${nodemailer.getTestMessageUrl(info)}`);
   },
-  { connection },
+  {
+    connection,
+    concurrency: 5,
+    limiter: {
+      max: 10,
+      duration: 1000,
+    },
+  },
 );
 
 worker.on('completed', (job) => {
