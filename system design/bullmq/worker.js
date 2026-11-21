@@ -25,6 +25,11 @@ const worker = new Worker(
 
     await job.updateProgress(10); // started
 
+    // Simulate a flaky SMTP server: fail ~50% of the time to see retries + backoff
+    if (Math.random() < 0.5) {
+      throw new Error(`SMTP down (attempt ${job.attemptsMade + 1})`);
+    }
+
     const info = await transporter.sendMail({
       from: '"My App" <no-reply@myapp.com>',
       to,
@@ -58,7 +63,12 @@ worker.on('completed', (job) => {
 });
 
 worker.on('failed', (job, err) => {
-  console.log(`Job ${job.id} failed: ${err.message}`);
+  const maxAttempts = job.opts.attempts ?? 1;
+  const finalFailure = job.attemptsMade >= maxAttempts;
+  console.log(
+    `Job ${job.id} failed: ${err.message} | attempts ${job.attemptsMade}/${maxAttempts}` +
+      (finalFailure ? ' | giving up' : ' | will retry'),
+  );
 });
 
 console.log('Worker is running...');
