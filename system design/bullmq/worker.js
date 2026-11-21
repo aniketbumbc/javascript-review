@@ -23,6 +23,8 @@ const worker = new Worker(
       `Processing ${job.name} (priority ${job.opts.priority ?? 0}) after ${waitedMs}ms`,
     );
 
+    await job.updateProgress(10); // started
+
     const info = await transporter.sendMail({
       from: '"My App" <no-reply@myapp.com>',
       to,
@@ -30,8 +32,12 @@ const worker = new Worker(
       text: body,
     });
 
+    await job.updateProgress(80); // email sent
+
     console.log(`Sent to ${to}`);
     console.log(`Preview: ${nodemailer.getTestMessageUrl(info)}`);
+
+    await job.updateProgress(100); // done
   },
   {
     connection,
@@ -42,6 +48,10 @@ const worker = new Worker(
     },
   },
 );
+
+worker.on('progress', (job, progress) => {
+  console.log(`Job ${job.id} (${job.name}) progress: ${progress}%`);
+});
 
 worker.on('completed', (job) => {
   console.log(`Job ${job.id} completed`);
