@@ -18,6 +18,10 @@ const worker = new Worker(
   'email-queue',
   async (job) => {
     const { to, subject, body } = job.data;
+    const waitedMs = Date.now() - job.timestamp;
+    console.log(
+      `Processing ${job.name} (priority ${job.opts.priority ?? 0}) after ${waitedMs}ms`,
+    );
 
     const info = await transporter.sendMail({
       from: '"My App" <no-reply@myapp.com>',
