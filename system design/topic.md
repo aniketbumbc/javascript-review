@@ -1,6 +1,6 @@
 # System Design Algorithms
 
-Progress: **9 / 34 done**
+Progress: **11 / 34 done**
 
 ## Hashing / URL shortener
 
@@ -13,12 +13,12 @@ Progress: **9 / 34 done**
 - [x] Token Bucket → [token-bucket.js](token-bucket.js)
 - [ ] Leaky Bucket
 - [ ] Fixed Window Counter
-- [ ] Sliding Window Log
+- [x] Sliding Window Log → [sliding-window-log.js](sliding-window-log.js)
 - [ ] Sliding Window Counter
 
 ## Caching
 
-- [ ] LRU Cache (Least Recently Used)
+- [x] LRU Cache (Least Recently Used) → [lru-cache.js](lru-cache.js)
 - [ ] LFU Cache (Least Frequently Used)
 - [ ] TTL Cache (entries expire after a set time)
 
