@@ -1,6 +1,6 @@
 # System Design Algorithms
 
-Progress: **11 / 34 done**
+Progress: **12 / 34 done**
 
 ## Hashing / URL shortener
 
@@ -19,7 +19,7 @@ Progress: **11 / 34 done**
 ## Caching
 
 - [x] LRU Cache (Least Recently Used) → [lru-cache.js](lru-cache.js)
-- [ ] LFU Cache (Least Frequently Used)
+- [x] LFU Cache (Least Frequently Used) → [lfu-cache.js](lfu-cache.js)
 - [ ] TTL Cache (entries expire after a set time)
 
 ## Load balancing
